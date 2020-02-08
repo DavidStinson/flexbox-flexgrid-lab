@@ -1,30 +1,135 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
 	font-family: Helvetica;
 	height: 100vh;
-	display: flex;
-  flex-direction: column;
-  text-align: center;
+  	flex-direction: column;
+	text-align: center;
+	display: grid;
 }
 
-div{
+div#container{
 	margin: auto;
 	width: 480px;
 	height: 300px;
-	border: 1vmin solid #3e3e3e;
+	border: 1px solid #3e3e3e;
 	box-shadow: 5px 5px 6px 3px #9f9f9f;
+	display: grid;
+	grid-template-columns: 96px 96px 288px;
+	grid-template-rows: 60px 60px 120px 60px;
+	grid-template-areas: 
+		"pic pic name"
+		"pic pic job"
+		"pic pic job-description"
+		"call message promo";
+}
+
+img {
+	height: 128px;
+	margin: auto;
+	background-color: white;
+}
+
+button {
+	border: 0;
+}
+
+.flex-align {
+	padding: 10px 5px 10px 20px;
+	margin: 0;
+	text-align: left;
+	vertical-align: middle;
+	display: inline;
+	background-color: #3e3e3e;
+	color: white;
+}
+
+#online {
+	grid-area: pic;
+	text-align: right;
+	margin: 12px 6px;
+	order: 1;
+	font-size: x-small;
+}
+
+#image {
+	grid-area: pic;
+	order: 1;
+}
+
+#name {
+	grid-area: name;
+	order: 3;
+	font-size: xx-large;
+	display: flex;
+	align-items: center;
+}
+
+#job {
+	grid-area: job;
+	order: 4;
+}
+
+#job-description {
+	grid-area: job-description;
+	border-left: green 1.5vmin solid;
+	order: 5;
+	font-style: italic;
+}
+
+#promo {
+	grid-area: promo;
+	order: 6;
+}
+
+#call {
+	grid-area: call;
+	background-color: springgreen;
+	font-size: x-large;
+	order: 7;
+}
+
+#message {
+	grid-area: message;
+	background-color: seagreen;
+	font-size: x-large;
+	order: 7;
+
 }
   
 @media (max-width: 600px) {
-	div {
+	div#container {
 		width: 300px;
 		height: 480px;
-		display: grid;
-		grid-template-columns: 5;
-		grid-template-rows: 4;
+		display: flex;
+		flex-direction: column;
 	}
+
+	.wide-only {
+		display: none;
+	}
+
+	.flex-align  {
+		margin: 0;
+		padding: auto;
+		text-align: center;
+		background-color: #3e3e3e;
+		color: white;
+	}
+	
+	#online{
+		align-self: flex-start;
+	}
+
+	#call {
+		align-self: flex-end;
+	}
+
+	#call {
+		
+	}
+
+	#message {
+		align-self: flex-end;
+	}
+	
 }
